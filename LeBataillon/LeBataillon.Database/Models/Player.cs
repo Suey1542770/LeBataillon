@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 namespace LeBataillon.Database.Models
 {
     public class Player
     {
-       public Player()
+        public Player()
         {
 
 
@@ -20,9 +20,10 @@ namespace LeBataillon.Database.Models
             this.LastName = LastName;
             this.Level = Level;
 
-        } 
 
-                public void EditFrom(Player p)
+        }
+
+        public void EditFrom(Player p)
         {
             this.Id = p.Id;
             this.NickName = p.NickName;
@@ -31,15 +32,31 @@ namespace LeBataillon.Database.Models
             this.FirstName = p.FirstName;
             this.LastName = p.LastName;
             this.Level = p.Level;
+            this.TeamId = p.TeamId;
 
-        } 
-            public int Id { get; set; }
+        }
+        [Required]
+        public int Id { get; set; }
         public string NickName { get; set; }
+
+        [Required]
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
+
+        [Required]
         public string LastName { get; set; }
         public PlayerLevel Level { get; set; }
+
+
+        public int? TeamId { get; set; }
+
+        [ForeignKey("TeamId")]
+        public virtual Team team { get; set; }
+
+
 
     }
 }

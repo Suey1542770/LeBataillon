@@ -1,32 +1,52 @@
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 namespace LeBataillon.Database.Models
 {
     public class Team
     {
-        
-         public Team()
+        public Team()
         {
 
 
         }
 
-        public Team(int Id, string TeamName, int Captain)
+        public Team(int i, string teamName)
+        {
+
+
+        }
+
+        public Team(int Id, string TeamName, int? Captain)
         {
             this.Id = Id;
             this.TeamName = TeamName;
-            this.Captain = Captain;
+            this.CaptainId = Captain;
 
-        } 
+        }
 
-                public void EditFrom(Team t)
+        public void EditFrom(Team t)
         {
             this.Id = t.Id;
             this.TeamName = t.TeamName;
-            this.Captain = t.Captain;
+            this.CaptainId = t.CaptainId;
+            this.Players = t.Players;
 
-        } 
-            public int Id { get; set; }
+        }
+        [Required]
+        public int Id { get; set; }
+        [Required]
         public string TeamName { get; set; }
-        public int Captain { get; set; }
+
+
+        public int? CaptainId { get; set; }
+        [ForeignKey("CaptainId")]
+        public virtual Player Captain { get; set; }
+
+        [InverseProperty("team")]
+        public virtual List<Player> Players { get; set; }
+
 
     }
 }

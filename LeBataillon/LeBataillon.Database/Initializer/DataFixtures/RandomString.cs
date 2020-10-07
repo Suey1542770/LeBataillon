@@ -6,67 +6,68 @@ namespace LeBataillon.Database.Initializer.DataFixtures
 {
 
 
-public static class SampleData{
+    public static class SampleData
+    {
 
 
-public static string[] names = new string[]{
+        public static string[] names = new string[]{
 
-"Magen", 
-"Mariella", 
-"Tonita", 
-"Marcella", 
-"Conrad", 
-"Antonetta", 
-"Nicholas", 
-"Pierre", 
-"Derick", 
-"Barbie", 
-"Debi", 
-"Rosetta", 
-"Adrian", 
-"Marlon", 
-"Pat", 
-"Cathryn", 
-"Ralph", 
-"Emely", 
-"Troy", 
-"Steven", 
-"Vi", 
-"Simonne", 
-"Alejandro", 
-"Angelina", 
-"Marcie", 
-"Sheryl", 
-"Jane", 
-"Berniece", 
-"Dina", 
-"Sherlene", 
-"Adell", 
-"Tyson", 
-"Bianca", 
-"Sheridan", 
-"Leida", 
-"Johana", 
-"Ernestine", 
-"Krissy", 
-"Eugenie", 
-"Palmira", 
-"Jamal", 
-"Eugenio", 
-"Arielle", 
-"Tad", 
-"Marcell", 
-"Roma", 
-"Sherise", 
-"Jeanetta", 
-"Liliana", 
+"Magen",
+"Mariella",
+"Tonita",
+"Marcella",
+"Conrad",
+"Antonetta",
+"Nicholas",
+"Pierre",
+"Derick",
+"Barbie",
+"Debi",
+"Rosetta",
+"Adrian",
+"Marlon",
+"Pat",
+"Cathryn",
+"Ralph",
+"Emely",
+"Troy",
+"Steven",
+"Vi",
+"Simonne",
+"Alejandro",
+"Angelina",
+"Marcie",
+"Sheryl",
+"Jane",
+"Berniece",
+"Dina",
+"Sherlene",
+"Adell",
+"Tyson",
+"Bianca",
+"Sheridan",
+"Leida",
+"Johana",
+"Ernestine",
+"Krissy",
+"Eugenie",
+"Palmira",
+"Jamal",
+"Eugenio",
+"Arielle",
+"Tad",
+"Marcell",
+"Roma",
+"Sherise",
+"Jeanetta",
+"Liliana",
 "Gertie"
 
-} 
-;
+}
+        ;
 
 
-public static string[] zipCodes = new string[]{
+        public static string[] zipCodes = new string[]{
 "N2Z 6A2, Kincardine, ON"
 ,"T1V 3L7, High River, AB"
 ,"E9E 4L4, Red Bank, NB"
@@ -188,7 +189,7 @@ public static string[] zipCodes = new string[]{
 ,"P9A 9N0, Fort Frances, ON"
 ,"G8H 2Y3, Roberval, QC"};
 
-public static string[] streetNames = new string[]{
+        public static string[] streetNames = new string[]{
 "Rosemary Lane"
 ,"Chantry Close"
 ,"West Road"
@@ -240,9 +241,9 @@ public static string[] streetNames = new string[]{
 ,"The Meadows"
 ,"Fern Close"};
 
-public static string[] countries = new string[]{"Canada"};
+        public static string[] countries = new string[] { "Canada" };
 
-public static string [] lastNames = new string[]{
+        public static string[] lastNames = new string[]{
 
 "Albro"
 ,"Dragstrup"
@@ -289,90 +290,97 @@ public static string [] lastNames = new string[]{
 ,"Boswood"
 ,"Canding"};
 
-public static string GeneratePhoneNumber(int seedData){
+        public static string GeneratePhoneNumber(int seedData)
+        {
 
-var r = new Random(seedData);
-return $"{r.Next(1,9)}{r.Next(1,9)}{r.Next(1,9)}-{r.Next(1,9)}{r.Next(1,9)}{r.Next(1,9)}-{r.Next(1,9)}{r.Next(1,9)}{r.Next(1,9)}{r.Next(1,9)}";
-
-}
-
-public static string GenerateName(int seedData){
-var random = new Random(seedData);
-return names[random.Next(0,names.Length-1)];
-    
-}
-
-public static string GenerateLastName(int seedData){
-var random = new Random(seedData);
-return lastNames[random.Next(0,lastNames.Length-1)];
-    
-}
-
-public static PlayerLevel GenerateLevel(){
-
-Array values = Enum.GetValues(typeof(PlayerLevel));
-Random random = new Random();
-PlayerLevel randomLevel = (PlayerLevel)values.GetValue(random.Next(values.Length));
-return randomLevel;
+            var r = new Random(seedData);
+            return $"{r.Next(1, 9)}{r.Next(1, 9)}{r.Next(1, 9)}-{r.Next(1, 9)}{r.Next(1, 9)}{r.Next(1, 9)}-{r.Next(1, 9)}{r.Next(1, 9)}{r.Next(1, 9)}{r.Next(1, 9)}";
 
         }
 
-public static decimal GenerateDecimal(int seedData,int minimum=1, int maximimum = 10000){
+        public static string GenerateName(int seedData)
+        {
+            var random = new Random(seedData);
+            return names[random.Next(0, names.Length - 1)];
 
-var random = new Random(seedData);
-return (random.Next(minimum*100,maximimum*100) / 100.0m);
-}
+        }
+
+        public static string GenerateLastName(int seedData)
+        {
+            var random = new Random(seedData);
+            return lastNames[random.Next(0, lastNames.Length - 1)];
+
+        }
+
+        public static PlayerLevel GenerateLevel()
+        {
+
+            Array values = Enum.GetValues(typeof(PlayerLevel));
+            Random random = new Random();
+            PlayerLevel randomLevel = (PlayerLevel)values.GetValue(random.Next(0, values.Length - 1));
+            return randomLevel;
+
+        }
+
+        public static decimal GenerateDecimal(int seedData, int minimum = 1, int maximimum = 10000)
+        {
+
+            var random = new Random(seedData);
+            return (random.Next(minimum * 100, maximimum * 100) / 100.0m);
+        }
 
 
-public static int GenerateInteger(int seedData,int minimum=1, int maximimum = 10000){
+        public static int GenerateInteger(int seedData, int minimum = 1, int maximimum = 10000)
+        {
 
-var random = new Random(seedData);
-return (random.Next(minimum,maximimum));
-}
+            var random = new Random(seedData);
+            return (random.Next(minimum, maximimum));
+        }
 
 
-public static string GenerateAddress(int seedData){
- 
- 
- var el = string.Empty;
-var random = new Random(seedData);
+        public static string GenerateAddress(int seedData)
+        {
 
-var zipCode = zipCodes[random.Next(0,zipCodes.Length-1)].Split(',');
-var streetName = streetNames[random.Next(0,streetNames.Length-1)];
-var streetNumber = random.Next(10,5000);
-var streetLetter = random.Next(1,10) % 2 == 0 ? "A" : "";
-var country = countries[random.Next(0,countries.Length-1)];
 
-el = $@"{streetNumber}, {streetName}
+            var el = string.Empty;
+            var random = new Random(seedData);
+
+            var zipCode = zipCodes[random.Next(0, zipCodes.Length - 1)].Split(',');
+            var streetName = streetNames[random.Next(0, streetNames.Length - 1)];
+            var streetNumber = random.Next(10, 5000);
+            var streetLetter = random.Next(1, 10) % 2 == 0 ? "A" : "";
+            var country = countries[random.Next(0, countries.Length - 1)];
+
+            el = $@"{streetNumber}, {streetName}
 {zipCode[1].Trim()} ({zipCode[2].Trim()})
 {zipCode[0].Trim()} 
 {country}
 ";
 
-return el;
-}
+            return el;
+        }
 
 
 
- 
-  public  static decimal Round(decimal originalValue, int decimals)
-    {
-        if ((decimals < -28) || (decimals > 28))
-            throw new ArgumentOutOfRangeException("decimals", "decimals : [-28, 28]");
- 
-        if (decimals >= 0)
-            return decimal.Round(originalValue, decimals);
- 
-        decimal n = 10;
 
-        while(decimals < -1) // 10^n. 
-        {n=n*10m; decimals++;}
-        
-        //321.12 avec -1, 32,121, round => 32,000 => 320,00 
-        return decimal.Round(originalValue / n, 0) * n;
+        public static decimal Round(decimal originalValue, int decimals)
+        {
+            if ((decimals < -28) || (decimals > 28))
+                throw new ArgumentOutOfRangeException("decimals", "decimals : [-28, 28]");
+
+            if (decimals >= 0)
+                return decimal.Round(originalValue, decimals);
+
+            decimal n = 10;
+
+            while (decimals < -1) // 10^n. 
+            { n = n * 10m; decimals++; }
+
+            //321.12 avec -1, 32,121, round => 32,000 => 320,00 
+            return decimal.Round(originalValue / n, 0) * n;
+        }
+
     }
-
-}
 
 
 

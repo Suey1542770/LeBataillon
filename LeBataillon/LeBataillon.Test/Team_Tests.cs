@@ -1,9 +1,9 @@
 using System;
 using Xunit;
 
-namespace LeBataillon_Tests
+namespace LeBataillon.Test
 {
-    public class UnitTest1
+    public class Team_Tests
     {
         [Fact]
         public void Test1()

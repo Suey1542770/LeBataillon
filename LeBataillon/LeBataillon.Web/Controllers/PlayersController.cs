@@ -7,22 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LeBataillon.Database.Context;
 using LeBataillon.Database.Models;
+using LeBataillon.Database.Repository;
 
 namespace LeBataillon.Web.Controllers
 {
     public class PlayersController : Controller
     {
         private readonly LeBataillonDbContext _context;
+        private readonly IPlayerRepo _repo;
 
-        public PlayersController(LeBataillonDbContext context)
+
+
+        public PlayersController(IPlayerRepo repo)
         {
-            _context = context;
+            _repo = repo;
         }
 
         // GET: Players
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.players.ToListAsync());
+            return View(_repo.GetAll());
         }
 
         // GET: Players/Details/5

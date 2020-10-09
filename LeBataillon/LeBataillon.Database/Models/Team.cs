@@ -37,6 +37,7 @@ namespace LeBataillon.Database.Models
         [Required]
         public int Id { get; set; }
         [Required]
+        [MaxLength(25)]
         public string TeamName { get; set; }
 
 
@@ -45,6 +46,7 @@ namespace LeBataillon.Database.Models
         public virtual Player Captain { get; set; }
 
         [InverseProperty("team")]
+
         public virtual List<Player> Players { get; set; }
 
 

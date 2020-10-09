@@ -1,5 +1,6 @@
 @model LeBataillon.Database.Models.Game
 
+
 @{
     ViewData["Title"] = "Create";
 }
@@ -18,12 +19,12 @@
                 <span asp-validation-for="GameDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TeamDefendant" class="control-label"></label>
+                <label asp-for="TeamDefendant" class="control-label" type="int"></label>
                 <input asp-for="TeamDefendant" class="form-control" />
                 <span asp-validation-for="TeamDefendant" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="TeamAttacker" class="control-label"></label>
+                <label asp-for="TeamAttacker" class="control-label" type="int"></label>
                 <input asp-for="TeamAttacker" class="form-control" />
                 <span asp-validation-for="TeamAttacker" class="text-danger"></span>
             </div>

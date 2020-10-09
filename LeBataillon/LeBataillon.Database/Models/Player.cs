@@ -37,16 +37,21 @@ namespace LeBataillon.Database.Models
         }
         [Required]
         public int Id { get; set; }
+        [MaxLength(30)]
         public string NickName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le courriel est requis")]
+        [EmailAddress(ErrorMessage = "Le courriel n'est pas valid")]
         public string Email { get; set; }
+        [Phone(ErrorMessage = "le numero de téléphone n'est pas valid")]
         public string PhoneNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le prenom est requis")]
+        [MaxLength(30, ErrorMessage = "Le prenom doit étre plus petit que 30 charactère")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le nom est requis")]
+        [MaxLength(30, ErrorMessage = "Le nom doit étre plus petit que 30 charactère")]
         public string LastName { get; set; }
         public PlayerLevel Level { get; set; }
 

@@ -43,6 +43,7 @@ namespace LeBataillon.Database.Models
         [Required(ErrorMessage = "Le courriel est requis")]
         [EmailAddress(ErrorMessage = "Le courriel n'est pas valid")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "le numero de téléphone est requis")]
         [Phone(ErrorMessage = "le numero de téléphone n'est pas valid")]
         public string PhoneNumber { get; set; }
 
@@ -53,9 +54,10 @@ namespace LeBataillon.Database.Models
         [Required(ErrorMessage = "Le nom est requis")]
         [MaxLength(30, ErrorMessage = "Le nom doit étre plus petit que 30 charactère")]
         public string LastName { get; set; }
+        [Range(0, 3, ErrorMessage = "pas un choix valid")]
         public PlayerLevel Level { get; set; }
 
-
+        [Range(0, int.MaxValue, ErrorMessage = "choisir un nombre entier positif")]
         public int? TeamId { get; set; }
 
         [ForeignKey("TeamId")]

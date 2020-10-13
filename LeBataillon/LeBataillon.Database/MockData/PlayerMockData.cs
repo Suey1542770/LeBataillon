@@ -129,7 +129,7 @@ namespace LeBataillon.Database.MockData
                     FirstName ="pik",
                     LastName = "achu",
                     Level = PlayerLevel.avancé,
-                    TeamId = 2,
+                    TeamId =2,
 
                 },
                 new Player()
@@ -155,7 +155,19 @@ namespace LeBataillon.Database.MockData
                     Level = PlayerLevel.avancé,
                     TeamId = 2,
 
+                },
+                 new Player()
+                {
+                    Id = 13,
+                    NickName = "Niconi",
+                    Email = "Nico@email.com",
+                    PhoneNumber = "222 222 2222",
+                    FirstName ="Nico",
+                    LastName = "Yazawa",
+                    Level = PlayerLevel.avancé,
+                    TeamId = null,
                 }
+
             };
 
 

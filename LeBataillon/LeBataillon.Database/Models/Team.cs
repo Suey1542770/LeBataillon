@@ -50,5 +50,6 @@ namespace LeBataillon.Database.Models
         public virtual List<Player> Players { get; set; }
 
 
+
     }
 }

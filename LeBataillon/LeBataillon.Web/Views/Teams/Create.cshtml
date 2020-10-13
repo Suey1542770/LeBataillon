@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="TeamName" class="control-label"></label>
-                <input asp-for="TeamName" class="form-control" />
+                <input asp-for="TeamName" class="form-control" required />
                 <span asp-validation-for="TeamName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CaptainId" class="control-label"></label>
-                <input asp-for="CaptainId" class="form-control" />
+                <input asp-for="CaptainId" class="form-control" min="0" />
                 <span asp-validation-for="CaptainId" class="text-danger"></span>
             </div>
             <div class="form-group">

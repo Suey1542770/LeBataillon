@@ -1,6 +1,6 @@
-using System;
+
 using Xunit;
-using System.ComponentModel.DataAnnotations;
+
 using LeBataillon.Database.Models;
 namespace LeBataillon.Test
 {
@@ -43,9 +43,6 @@ namespace LeBataillon.Test
             Assert.True(player.PhoneNumber == player1.PhoneNumber);
             Assert.True(player.TeamId == player1.TeamId);
             Assert.True(player.Level == player1.Level);
-
-
-
         }
 
     }

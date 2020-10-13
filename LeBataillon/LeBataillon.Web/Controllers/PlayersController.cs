@@ -14,8 +14,18 @@ namespace LeBataillon.Web.Controllers
     public class PlayersController : Controller
     {
         private readonly LeBataillonDbContext _context;
+
         private readonly IPlayerRepo _repo;
 
+        //public PlayersController(LeBataillonDbContext context)
+        //{
+        //    _context = context;
+        //}
+        // GET: Players
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.players.ToListAsync());
+        //}
 
 
         public PlayersController(IPlayerRepo repo)
